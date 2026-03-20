@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 96%;
+    --foreground: 0 0% 16%;
+    --card: 30 20% 96%;
+    --card-foreground: 0 0% 16%;
+    --popover: 30 20% 96%;
+    --popover-foreground: 0 0% 16%;
+    --primary: 0 0% 16%;
+    --primary-foreground: 30 20% 96%;
+    --secondary: 200 35% 93%;
+    --secondary-foreground: 0 0% 16%;
+    --muted: 30 10% 90%;
+    --muted-foreground: 0 0% 43%;
+    --accent: 30 45% 66%;
+    --accent-foreground: 0 0% 16%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 10% 85%;
+    --input: 30 10% 85%;
+    --ring: 30 45% 66%;
+    --radius: 1.375rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F4F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4A27F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c29370;
+}
+
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.section-pinned {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.jewelry-card {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.jewelry-card:hover {
+  transform: translateY(-8px);
+}
+.jewelry-card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.jewelry-card:hover img {
+  transform: scale(1.05);
+}
+
+.btn-pill {
+  @apply px-8 py-3 rounded-full font-sans text-sm tracking-wider uppercase transition-all duration-300;
+}
+.btn-pill-primary {
+  @apply bg-white text-[#2A2A2A] hover:bg-[#2A2A2A] hover:text-white;
+}
+
+.gold-rule {
+  width: 44px;
+  height: 2px;
+  background-color: #D4A27F;
+}
+
+.text-caps {
+  @apply font-sans text-[11px] font-medium tracking-[0.18em] uppercase;
+}
+
+.film-grade {
+  filter: saturate(0.9) contrast(1.05);
+}
+
+input, textarea {
+  @apply bg-white/80 border border-[#E5E5E5] rounded-xl px-4 py-3 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#D4A27F]/50 transition-all;
+}
+
+.cart-drawer {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
